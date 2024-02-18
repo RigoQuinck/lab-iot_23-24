@@ -4,17 +4,20 @@
 int fadeAmount;
 int currIntensity;
 
-void setup(){
+void setup()
+{
   currIntensity = 0;
   fadeAmount = 5;
-  pinMode(LED_PIN, OUTPUT);     
+  pinMode(LED_PIN, OUTPUT);
 }
 
-void loop(){
-  analogWrite(LED_PIN, currIntensity);   
+void loop()
+{
+  analogWrite(LED_PIN, currIntensity);
   currIntensity = currIntensity + fadeAmount;
-  if (currIntensity == 0 || currIntensity == 255) {
-    fadeAmount = -fadeAmount ; 
-  }     
-  delay(50);                               
+  if (currIntensity == 0 || currIntensity == 255)
+  {
+    fadeAmount = -fadeAmount;
+  }
+  delay(50);
 }

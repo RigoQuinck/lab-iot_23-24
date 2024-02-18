@@ -5,17 +5,18 @@
 
 int count;
 
-void setup() {
+void setup()
+{
   count = 0;
-
-  if (publicFlag) {
+  if (publicFlag)
+  {
     count++;
   }
-
   Serial.begin(115200);
 }
 
-void loop() {
+void loop()
+{
   int myvar = 1;
   count = increment(count);
   Serial.print("hello ");
