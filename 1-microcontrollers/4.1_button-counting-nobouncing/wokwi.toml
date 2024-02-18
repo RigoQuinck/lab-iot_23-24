@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/arduino.avr.uno/4.1_button-counting-nobouncing.ino.hex'
+elf = 'build/arduino.avr.uno/4.1_button-counting-nobouncing.ino.elf'
