@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "author": "Stefano Righini",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -89.4, "left": 367.6, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0.6, "left": -0.6, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -29.4,
+      "left": 502.2,
+      "rotate": 90,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 51.95,
+      "left": 470.4,
+      "attrs": { "value": "10000" }
+    }
+  ],
+  "connections": [
+    [ "bb1:17b.g", "bb1:bp.14", "red", [ "v0" ] ],
+    [ "bb1:15b.g", "uno:2", "green", [ "h-144", "v-28.8" ] ],
+    [ "bb1:9b.j", "bb1:bn.7", "black", [ "v0" ] ],
+    [ "bb1:bn.1", "uno:GND.3", "black", [ "v113.9", "h-223.2" ] ],
+    [ "bb1:bp.2", "uno:5V", "red", [ "v171.9", "h-251.8" ] ],
+    [ "btn1:1.l", "bb1:17t.a", "", [ "$bb" ] ],
+    [ "btn1:2.l", "bb1:15t.a", "", [ "$bb" ] ],
+    [ "btn1:1.r", "bb1:17b.f", "", [ "$bb" ] ],
+    [ "btn1:2.r", "bb1:15b.f", "", [ "$bb" ] ],
+    [ "r1:1", "bb1:9b.i", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:15b.i", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
