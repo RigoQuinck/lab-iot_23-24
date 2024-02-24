@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/servo_sweep.ino.hex'
+elf = 'build/servo_sweep.ino.elf'
