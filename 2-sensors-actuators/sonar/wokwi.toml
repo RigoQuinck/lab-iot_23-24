@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/sonar.ino.hex'
+elf = 'build/sonar.ino.elf'
