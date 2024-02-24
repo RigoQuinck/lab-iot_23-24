@@ -1,0 +1,41 @@
+{
+    "version": 1,
+    "author": "Stefano Righini",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "wokwi-breadboard-half", "id": "bb1", "top": 141, "left": 281.2, "attrs": {} },
+      { "type": "wokwi-arduino-uno", "id": "uno", "top": 288.6, "left": -29.4, "attrs": {} },
+      { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": 167.2, "left": 319.02, "attrs": {} },
+      {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": 217.2,
+        "left": 445.4,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": 272.75,
+        "left": 470.4,
+        "attrs": { "value": "220" }
+      }
+    ],
+    "connections": [
+      [ "bb1:6b.h", "bb1:bp.5", "red", [ "v0" ] ],
+      [ "bb1:7b.g", "uno:2", "orange", [ "h-153.6", "v28.8" ] ],
+      [ "bb1:8b.h", "bb1:bn.6", "black", [ "v0" ] ],
+      [ "bb1:bn.1", "uno:GND.3", "black", [ "v171.5", "h-165.6" ] ],
+      [ "bb1:bp.2", "uno:5V", "red", [ "v200.7", "h-194.2" ] ],
+      [ "bb1:17b.h", "bb1:bn.14", "black", [ "v0" ] ],
+      [ "pir1:VCC", "bb1:6b.f", "", [ "$bb" ] ],
+      [ "pir1:OUT", "bb1:7b.f", "", [ "$bb" ] ],
+      [ "pir1:GND", "bb1:8b.f", "", [ "$bb" ] ],
+      [ "led1:A", "bb1:18b.f", "", [ "$bb" ] ],
+      [ "led1:C", "bb1:17b.f", "", [ "$bb" ] ],
+      [ "r1:1", "bb1:18b.h", "", [ "$bb" ] ],
+      [ "r1:2", "bb1:24b.h", "", [ "$bb" ] ],
+      [ "bb1:24b.g", "uno:8", "green", [ "v-144", "h-384", "v172.8" ] ]
+    ],
+    "dependencies": {}
+  }

@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/pir.ino.hex'
+elf = 'build/pir.ino.elf'
