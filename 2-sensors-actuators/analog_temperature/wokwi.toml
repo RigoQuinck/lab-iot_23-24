@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/analog_temperature.ino.hex'
+elf = 'build/analog_temperature.ino.elf'

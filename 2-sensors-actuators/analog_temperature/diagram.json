@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "author": "Stefano Righini",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "wokwi-breadboard-half", "id": "bb1", "top": 400.2, "left": 70, "attrs": {} },
+      { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+      {
+        "type": "wokwi-lcd1602",
+        "id": "lcd1",
+        "top": 236.8,
+        "left": 380,
+        "attrs": { "pins": "i2c" }
+      },
+      {
+        "type": "wokwi-ntc-temperature-sensor",
+        "id": "ntc1",
+        "top": 300.2,
+        "left": -96.6,
+        "attrs": {}
+      }
+    ],
+    "connections": [
+      [ "lcd1:SDA", "uno:A4", "green", [ "h0" ] ],
+      [ "lcd1:SCL", "uno:A5", "green", [ "h0" ] ],
+      [ "lcd1:VCC", "bb1:tp.25", "red", [ "h0" ] ],
+      [ "lcd1:GND", "bb1:tn.23", "black", [ "h0" ] ],
+      [ "ntc1:GND", "bb1:tn.8", "black", [ "h0" ] ],
+      [ "ntc1:VCC", "bb1:tp.7", "red", [ "h0" ] ],
+      [ "uno:5V", "bb1:tp.11", "red", [ "v58.1", "h41.6", "v104.6", "h17.6" ] ],
+      [ "uno:GND.2", "bb1:tn.13", "black", [ "v38.9", "h68.9" ] ],
+      [ "ntc1:OUT", "uno:A2", "green", [ "h0" ] ]
+    ],
+    "dependencies": {}
+  }
