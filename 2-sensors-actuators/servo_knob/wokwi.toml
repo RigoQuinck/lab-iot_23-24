@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/servo_knob.ino.hex'
+elf = 'build/servo_knob.ino.elf'
