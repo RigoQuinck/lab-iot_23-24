@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "author": "Stefano Righini",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -118.2, "left": 70, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 192.6, "left": 57, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": -130.97, "left": 83.2, "attrs": {} }
+  ],
+  "connections": [
+    [ "bb1:bn.2", "bb1:3b.h", "black", [ "v0" ] ],
+    [ "bb1:4b.h", "bb1:bp.3", "red", [ "v0" ] ],
+    [ "bb1:18b.h", "bb1:bn.15", "black", [ "v0" ] ],
+    [ "bb1:17b.h", "bb1:bp.14", "red", [ "v0" ] ],
+    [ "bb1:6b.h", "uno:2", "green", [ "v86.4", "h72.7" ] ],
+    [ "bb1:7b.h", "bb1:bn.6", "black", [ "v0" ] ],
+    [ "bb1:16b.h", "uno:7", "white", [ "v0" ] ],
+    [ "bb1:15b.h", "uno:6", "gray", [ "v134.4", "h15.5" ] ],
+    [ "lcd1:VSS", "bb1:3b.f", "", [ "$bb" ] ],
+    [ "lcd1:VDD", "bb1:4b.f", "", [ "$bb" ] ],
+    [ "lcd1:V0", "bb1:5b.f", "", [ "$bb" ] ],
+    [ "lcd1:RS", "bb1:6b.f", "", [ "$bb" ] ],
+    [ "lcd1:RW", "bb1:7b.f", "", [ "$bb" ] ],
+    [ "lcd1:E", "bb1:8b.f", "", [ "$bb" ] ],
+    [ "lcd1:D0", "bb1:9b.f", "", [ "$bb" ] ],
+    [ "lcd1:D1", "bb1:10b.f", "", [ "$bb" ] ],
+    [ "lcd1:D2", "bb1:11b.f", "", [ "$bb" ] ],
+    [ "lcd1:D3", "bb1:12b.f", "", [ "$bb" ] ],
+    [ "lcd1:D4", "bb1:13b.f", "", [ "$bb" ] ],
+    [ "lcd1:D5", "bb1:14b.f", "", [ "$bb" ] ],
+    [ "lcd1:D6", "bb1:15b.f", "", [ "$bb" ] ],
+    [ "lcd1:D7", "bb1:16b.f", "", [ "$bb" ] ],
+    [ "lcd1:A", "bb1:17b.f", "", [ "$bb" ] ],
+    [ "lcd1:K", "bb1:18b.f", "", [ "$bb" ] ],
+    [ "bb1:14b.h", "uno:5", "violet", [ "v115.2", "h34.6" ] ],
+    [ "bb1:13b.h", "uno:4", "blue", [ "v124.8", "h53.7" ] ],
+    [ "bb1:8b.h", "uno:3", "gold", [ "v96", "h111.2" ] ],
+    [ "bb1:bp.1", "uno:5V", "red", [ "h-84.8", "v85.5", "h-32", "v288", "h229.8" ] ],
+    [ "bb1:bn.1", "uno:GND.1", "black", [ "v65.9", "h68.5" ] ]
+  ],
+  "dependencies": {}
+}
