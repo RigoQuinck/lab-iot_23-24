@@ -1,6 +1,5 @@
 #define LED_PIN 8
 #define PIR_PIN 2
-#define CALIBRATION_TIME_SEC 10
 
 bool detectedStatus;
 
@@ -14,15 +13,10 @@ void setup()
 
   // give the sensor some time to calibrate
   Serial.print("Calibrating sensor... ");
-  for (int i = 0; i < CALIBRATION_TIME_SEC; i++)
-  {
-    Serial.print(".");
-    delay(1000);
-  }
+  delay(10000);
   Serial.println(" done");
   Serial.println("PIR SENSOR READY.");
   detectedStatus = false;
-  delay(50);
 }
 
 void loop()

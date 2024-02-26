@@ -6,7 +6,7 @@ const int echoPin = 7;
   ì https://en.wikipedia.org/wiki/Speed_of_sound
    */
 
-const float speed = 343.21; // Speed estiation at 20 celsius
+const float speed = 343.21; // Speed of sound at 20 celsius
 
 void setup()
 {
