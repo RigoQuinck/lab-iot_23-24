@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/led-show.ino.hex'
+elf = 'build/led-show.ino.elf'
