@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/oop_step2.ino.hex'
+elf = 'build/oop_step2.ino.elf'
