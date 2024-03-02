@@ -1,4 +1,4 @@
 [wokwi]
 version = 1
-firmware = 'build/arduino.avr.uno/5_led-tuning.ino.hex'
-elf = 'build/arduino.avr.uno/5_led-tuning.ino.elf'
+firmware = 'build/5_led-tuning.ino.hex'
+elf = 'build/5_led-tuning.ino.elf'

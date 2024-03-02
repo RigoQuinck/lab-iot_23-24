@@ -25,7 +25,6 @@ void setup()
   pinMode(LED_PIN, OUTPUT);
   Timer1.initialize(PERIOD_uS);
   Timer1.attachInterrupt(blink);
-  Serial.begin(9600);
 }
 
 void loop()

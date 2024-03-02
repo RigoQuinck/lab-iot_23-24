@@ -1,4 +1,4 @@
 [wokwi]
 version = 1
-firmware = 'build/arduino.avr.uno/0_inc.ino.hex'
-elf = 'build/arduino.avr.uno/0_inc.ino.elf'
+firmware = 'build/0_inc.ino.hex'
+elf = 'build/0_inc.ino.elf'

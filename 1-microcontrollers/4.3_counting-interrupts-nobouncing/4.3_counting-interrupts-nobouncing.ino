@@ -1,5 +1,5 @@
 #define BUTTON_PIN 2
-#define BOUNCING_TIME 150
+#define BOUNCING_TIME 180
 
 volatile int count = 0;
 int prev = 0;

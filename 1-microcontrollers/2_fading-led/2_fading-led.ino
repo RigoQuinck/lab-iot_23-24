@@ -15,7 +15,7 @@ void loop()
 {
   analogWrite(LED_PIN, currIntensity);
   currIntensity = currIntensity + fadeAmount;
-  if (currIntensity == 0 || currIntensity == 255)
+  if (currIntensity <= 0 || currIntensity >= 255)
   {
     fadeAmount = -fadeAmount;
   }
