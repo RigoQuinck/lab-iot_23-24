@@ -1,4 +1,4 @@
 [wokwi]
 version = 1
-firmware = 'build/arduino.avr.uno/3_button-led.ino.hex'
-elf = 'build/arduino.avr.uno/3_button-led.ino.elf'
+firmware = 'build/3_button-led.ino.hex'
+elf = 'build/3_button-led.ino.elf'
