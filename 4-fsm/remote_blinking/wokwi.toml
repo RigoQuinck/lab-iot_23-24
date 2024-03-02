@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/remote_blinking.ino.hex'
+elf = 'build/remote_blinking.ino-led.elf'

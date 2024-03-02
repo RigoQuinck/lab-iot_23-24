@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/blinking_synch.ino.hex'
+elf = 'build/blinking_synch.ino-led.elf'

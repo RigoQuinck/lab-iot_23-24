@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/remote_led.ino.hex'
+elf = 'build/remote_led.ino-led.elf'
