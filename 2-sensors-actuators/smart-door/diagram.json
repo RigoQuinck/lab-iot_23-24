@@ -1,0 +1,25 @@
+{
+    "version": 1,
+    "author": "Stefano Righini",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "wokwi-breadboard", "id": "bb1", "top": -3, "left": 425.2, "attrs": {} },
+      { "type": "wokwi-arduino-uno", "id": "uno", "top": -249, "left": 268.2, "attrs": {} },
+      { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": 32.8, "left": 779.82, "attrs": {} },
+      { "type": "wokwi-servo", "id": "servo1", "top": 199.6, "left": 652.8, "attrs": {} }
+    ],
+    "connections": [
+      [ "uno:GND.2", "bb1:bn.1", "black", [ "v0" ] ],
+      [ "uno:5V", "bb1:bp.1", "red", [ "v0" ] ],
+      [ "bb1:39b.h", "bb1:bp.31", "red", [ "v0" ] ],
+      [ "bb1:41b.h", "bb1:bp.33", "black", [ "v0" ] ],
+      [ "bb1:40b.h", "uno:8", "blue", [ "h105.6", "v-432", "h-470.8" ] ],
+      [ "pir1:VCC", "bb1:39b.g", "", [ "$bb" ] ],
+      [ "pir1:OUT", "bb1:40b.g", "", [ "$bb" ] ],
+      [ "pir1:GND", "bb1:41b.g", "", [ "$bb" ] ],
+      [ "servo1:GND", "bb1:bn.14", "black", [ "h0" ] ],
+      [ "servo1:V+", "bb1:bp.11", "red", [ "h0" ] ],
+      [ "servo1:PWM", "uno:3", "orange", [ "h-19.2", "v-547", "h-138.4" ] ]
+    ],
+    "dependencies": {}
+  }
