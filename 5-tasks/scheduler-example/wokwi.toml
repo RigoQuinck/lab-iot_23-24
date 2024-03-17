@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/scheduler-example.ino.hex'
+elf = 'build/scheduler-example.ino.elf'
