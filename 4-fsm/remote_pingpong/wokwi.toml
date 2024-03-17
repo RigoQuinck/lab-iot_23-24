@@ -1,4 +1,0 @@
-[wokwi]
-version = 1
-firmware = 'build/remote_pingpong.ino.hex'
-elf = 'build/remote_pingpong.ino.elf'

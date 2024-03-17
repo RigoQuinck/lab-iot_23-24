@@ -40,16 +40,22 @@ void MsgServiceClass::sendMsg(const String &msg)
   Serial.println(msg);
 }
 
+void MsgServiceClass::sendMsg(const Msg &msg)
+{
+  Serial.println(msg.getContent());
+}
+
 void serialEvent()
 {
   /* reading the content */
   while (Serial.available())
   {
     char ch = (char)Serial.read();
-    if (ch == '\n')
+    if (ch == '\n' || ch == '\r')
     {
       MsgService.currentMsg = new Msg(content);
       MsgService.msgAvailable = true;
+      Serial.println("Msg Available");
     }
     else
     {

@@ -1,10 +1,9 @@
 #include "src/Led.h"
 #include "src/MsgService.h"
 
-#define LED_PIN 13
+#define LED_PIN 8
 
 Light *led;
-char data;
 
 void setup()
 {

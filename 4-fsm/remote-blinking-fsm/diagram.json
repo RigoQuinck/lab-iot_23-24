@@ -16,13 +16,17 @@
   ],
   "connections": [
     [ "bb1:bn.1", "uno:GND.3", "black", [ "v113.9", "h-223.2" ] ],
-    [ "bb1:bp.2", "uno:5V", "red", [ "v171.9", "h-251.8" ] ],
     [ "bb1:21b.h", "bb1:bn.17", "black", [ "v0" ] ],
+    [ "bb1:28b.g", "uno:8", "green", [ "v-172.8", "h-480.4" ] ],
     [ "led1:A", "bb1:22b.g", "", [ "$bb" ] ],
     [ "led1:C", "bb1:21b.g", "", [ "$bb" ] ],
     [ "r2:1", "bb1:22b.h", "", [ "$bb" ] ],
-    [ "r2:2", "bb1:28b.h", "", [ "$bb" ] ],
-    [ "bb1:28b.g", "uno:8", "green", [ "v-172.8", "h-480.4" ] ]
+    [ "r2:2", "bb1:28b.h", "", [ "$bb" ] ]
   ],
+  "serialMonitor": {
+    "display": "auto",
+    "newline": "lf",
+    "convertEol": false
+  },
   "dependencies": {}
 }

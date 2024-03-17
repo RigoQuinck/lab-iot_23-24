@@ -9,18 +9,6 @@
           "top": 0,
           "left": 0,
           "attrs": {}
-        },
-        {
-          "id": "serial",
-          "type": "wokwi-serial-port",
-          "attrs": { "baud": "115200" }
         }
-      ],
-      "connections": [
-        ["$serialMonitor:RX", "serial:TX", ""],
-        ["$serialMonitor:TX", "serial:RX", ""]
-      ],
-      "serialMonitor": {
-        "display": "always"
-      }
+      ]
 }
