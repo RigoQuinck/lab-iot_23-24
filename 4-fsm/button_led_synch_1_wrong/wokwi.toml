@@ -1,4 +1,0 @@
-[wokwi]
-version = 1
-firmware = 'build/button_led_synch_1_wrong.ino.hex'
-elf = 'build/button_led_synch_1_wrong.ino.elf'
