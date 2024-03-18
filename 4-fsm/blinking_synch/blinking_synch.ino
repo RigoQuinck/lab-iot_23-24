@@ -6,39 +6,31 @@
 Light *light;
 Timer timer;
 
-enum
-{
-  ON,
-  OFF
-} state;
+enum { ON, OFF } state;
 
-void setup()
-{
-  Serial.begin(9600);
-  light = new Led(LED_PIN);
-  state = OFF;
-  timer.setupPeriod(500);
-}
-
-void step()
-{
-  switch (state)
-  {
-  case OFF:
-    light->switchOn();
-    Serial.println("ON");
-    state = ON;
-    break;
-  case ON:
-    light->switchOff();
-    Serial.println("OFF");
+void setup() {
+    Serial.begin(9600);
+    light = new Led(LED_PIN);
     state = OFF;
-    break;
-  }
+    timer.setupPeriod(500);
 }
 
-void loop()
-{
-  timer.waitForNextTick();
-  step();
+void step() {
+    switch (state) {
+        case OFF:
+            light->switchOn();
+            Serial.println("ON");
+            state = ON;
+            break;
+        case ON:
+            light->switchOff();
+            Serial.println("OFF");
+            state = OFF;
+            break;
+    }
+}
+
+void loop() {
+    timer.waitForNextTick();
+    step();
 };

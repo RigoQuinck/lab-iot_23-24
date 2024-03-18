@@ -1,0 +1,11 @@
+@startuml random-led-fsm
+
+[*] -> OFF
+
+OFF -> ON: /led.swithOn()
+
+ON -u-> WAIT: btn.isPressed() /led.switchOff()
+
+WAIT -> OFF: after 1 second
+
+@enduml
