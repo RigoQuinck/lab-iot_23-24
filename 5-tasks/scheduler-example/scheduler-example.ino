@@ -1,6 +1,6 @@
-#include "src/Scheduler.h"
 #include "src/BlinkTask.h"
 #include "src/PrintTask.h"
+#include "src/Scheduler.h"
 
 #define BLINK_PIN 8
 
@@ -10,22 +10,20 @@
 
 Scheduler sched;
 
-void setup()
-{
-  Serial.begin(9600);
-  sched.init(SCHED_PERIOD);
+void setup() {
+    Serial.begin(9600);
+    sched.init(SCHED_PERIOD);
 
-  Task *t0 = new BlinkTask(BLINK_PIN);
-  t0->init(BLINK_PERIOD);
+    Task *t0 = new BlinkTask(BLINK_PIN);
+    t0->init(BLINK_PERIOD);
 
-  Task *t1 = new PrintTask();
-  t1->init(PRINT_PERIOD);
+    Task *t1 = new PrintTask();
+    t1->init(PRINT_PERIOD);
 
-  sched.addTask(t0);
-  sched.addTask(t1);
+    sched.addTask(t0);
+    sched.addTask(t1);
 }
 
-void loop()
-{
-  sched.schedule();
+void loop() {
+    sched.schedule();
 }

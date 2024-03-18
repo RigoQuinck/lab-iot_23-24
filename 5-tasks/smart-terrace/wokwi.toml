@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/smart-terrace.ino.hex'
+elf = 'build/smart-terrace.ino.elf'

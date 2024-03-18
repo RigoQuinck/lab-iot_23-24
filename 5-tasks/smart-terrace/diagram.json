@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "author": "Stefano Righini",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb1", "top": 227.4, "left": 12.4, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 230.1,
+      "left": 224.9,
+      "rotate": 90,
+      "attrs": {}
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 277.1, "left": 57.4, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": 26.8, "left": 556.8, "attrs": {} },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": 242.1,
+      "left": 373.9,
+      "rotate": 90,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "servo1:GND", "bb1:tn.39", "magenta", [ "h0" ] ],
+    [ "servo1:V+", "bb1:tp.40", "red", [ "h0" ] ],
+    [ "bb1:31b.g", "bb1:bp.25", "red", [ "v0" ] ],
+    [ "bb1:30b.g", "bb1:bn.24", "magenta", [ "v0" ] ],
+    [ "bb1:28b.g", "uno:A0", "gold", [ "h-86.4", "v-163.7" ] ],
+    [ "pot1:GND", "bb1:bn.4", "magenta", [ "v0" ] ],
+    [ "pot1:VCC", "bb1:bp.6", "red", [ "v0" ] ],
+    [ "pot1:SIG", "uno:A1", "blue", [ "h143.6", "v-154.1" ] ],
+    [ "uno:GND.2", "bb1:tn.11", "magenta", [ "v0" ] ],
+    [ "uno:5V", "bb1:tp.10", "red", [ "v0" ] ],
+    [ "bb1:tn.50", "bb1:bn.50", "magenta", [ "v0" ] ],
+    [ "bb1:tp.49", "bb1:bp.49", "red", [ "v0" ] ],
+    [ "ldr1:VCC", "bb1:31b.f", "", [ "$bb" ] ],
+    [ "ldr1:GND", "bb1:30b.f", "", [ "$bb" ] ],
+    [ "ldr1:DO", "bb1:29b.f", "", [ "$bb" ] ],
+    [ "ldr1:AO", "bb1:28b.f", "", [ "$bb" ] ],
+    [ "pot1:GND", "bb1:6b.f", "", [ "$bb" ] ],
+    [ "pot1:SIG", "bb1:7b.f", "", [ "$bb" ] ],
+    [ "pot1:VCC", "bb1:8b.f", "", [ "$bb" ] ],
+    [ "servo1:PWM", "uno:5", "green", [ "h-192", "v-124.6", "h-153.6" ] ],
+    [ "ntc1:GND", "bb1:44b.f", "", [ "$bb" ] ],
+    [ "ntc1:VCC", "bb1:43b.f", "", [ "$bb" ] ],
+    [ "ntc1:OUT", "bb1:42b.f", "", [ "$bb" ] ],
+    [ "ntc1:GND", "bb1:bn.35", "black", [ "v0" ] ],
+    [ "ntc1:VCC", "bb1:bp.35", "red", [ "v0" ] ],
+    [ "bb1:42b.g", "uno:A4", "#8f4814", [ "v96", "h-172.8", "v-259.7" ] ]
+  ],
+  "dependencies": {}
+}

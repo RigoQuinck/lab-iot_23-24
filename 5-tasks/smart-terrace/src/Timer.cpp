@@ -2,6 +2,8 @@
 
 #include <TimerOne.h>
 
+#include "Arduino.h"
+
 volatile bool timerFlag = false;
 
 void timerHandler() {
@@ -20,6 +22,7 @@ void Timer::setupPeriod(int period) {
 }
 
 void Timer::waitForNextTick() {
+    /* wait for timer signal */
     while (!timerFlag) {
     }
     timerFlag = false;
