@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/pattern-observer-example.ino.hex'
+elf = 'build/pattern-observer-example.ino.elf'
