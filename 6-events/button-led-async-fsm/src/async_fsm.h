@@ -21,7 +21,7 @@ class Event {
  */
 class Observer {
    public:
-    virtual void notifyEvent(Event* ev);
+    virtual void notifyEvent(Event* ev) = 0;
 };
 
 /**
