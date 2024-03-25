@@ -9,11 +9,14 @@ ButtonCounterAsyncFSM::ButtonCounterAsyncFSM(Button* btn, Button* button2, Light
     releasedCount = 0;
     state = SHOW;
     btn->registerObserver(this);
+    button2->registerObserver(this);
 }
 
 void ButtonCounterAsyncFSM::handleEvent(Event* ev) {
     switch (ev->getType()) {
         case BUTTON_PRESSED_EVENT:
+            Button* btnev = ((ButtonPressed*)ev)->getSource();
+            EventSource* src = ev->getSource();
             pressedCount++;
             break;
         case BUTTON_RELEASED_EVENT:

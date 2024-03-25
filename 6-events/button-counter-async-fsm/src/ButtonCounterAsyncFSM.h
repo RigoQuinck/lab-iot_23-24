@@ -5,7 +5,7 @@
 
 // 1: Conta gli eventi di pressione e rilascio di un botton
 // 2: Ogni 10 eventi mostro il conteggio
-// 3: Bottone che fa da switch per contare o fermate il conteggio
+// 3: Bottone che fa da switch per contare o fermate il conteggio => states: IDLE, WORKING
 
 class ButtonCounterAsyncFSM : public AsyncFSM {
    public:

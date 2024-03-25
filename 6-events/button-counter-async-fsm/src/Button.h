@@ -13,7 +13,7 @@ class Button : public EventSource {
 
 class ButtonPressed : public Event {
    public:
-    ButtonPressed(Button* source) : Event(BUTTON_PRESSED_EVENT) {
+    ButtonPressed(Button* source) : Event(BUTTON_PRESSED_EVENT, source) {
         this->source = source;
     }
 
@@ -27,7 +27,7 @@ class ButtonPressed : public Event {
 
 class ButtonReleased : public Event {
    public:
-    ButtonReleased(Button* source) : Event(BUTTON_RELEASED_EVENT) {
+    ButtonReleased(Button* source) : Event(BUTTON_RELEASED_EVENT, source) {
         this->source = source;
     }
 

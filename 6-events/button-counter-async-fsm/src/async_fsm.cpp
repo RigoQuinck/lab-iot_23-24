@@ -86,12 +86,17 @@ void InterruptDispatcher::notifyInterrupt(int pin) {
 
 /* ------------------------ Event  ------------------------ */
 
-Event::Event(int type) {
+Event::Event(int type, EventSource* src) {
     this->type = type;
+    this->src = src;
 }
 
 int Event::getType() {
     return type;
+}
+
+EventSource* Event::getSource() {
+    return this->src;
 }
 
 /* --------------------- EventSource ------------------- */

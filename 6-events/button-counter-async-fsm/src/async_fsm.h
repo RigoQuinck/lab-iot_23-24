@@ -9,11 +9,13 @@
  */
 class Event {
    public:
-    Event(int type);
+    Event(int type, EventSource* src);
     int getType();
+    EventSource* getSource();
 
    private:
     int type;
+    EventSource* src;
 };
 
 /**
