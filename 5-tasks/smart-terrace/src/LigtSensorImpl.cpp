@@ -7,16 +7,18 @@ const float RL10 = 50;
 
 LightSensorImpl::LightSensorImpl(int pin) {
     this->pin = pin;
+    pinMode(pin, INPUT);
 }
 
 int LightSensorImpl::getLightIntensity() {
     int value = analogRead(this->pin);
-    float lux = this->analogValueToLux(value);
+    double lux = this->analogValueToLux(value);
     return (int)lux;
 }
 
-float LightSensorImpl::analogValueToLux(int value) {
-    float voltage = value / 1024. * 5;
-    float resistance = 2000 * voltage / (1 - voltage / 5);
-    float lux = pow(RL10 * 1e3 * pow(10, GAMMA) / resistance, (1 / GAMMA));
+double LightSensorImpl::analogValueToLux(int value) {
+    double voltage = value / 1024. * 5;
+    double resistance = 2000 * voltage / (1 - voltage / 5);
+    double lux = pow(RL10 * 1e3 * pow(10, GAMMA) / resistance, (1 / GAMMA));
+    return lux;
 }

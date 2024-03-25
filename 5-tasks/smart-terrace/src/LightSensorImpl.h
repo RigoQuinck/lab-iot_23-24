@@ -7,5 +7,5 @@ class LightSensorImpl : public LightSensor {
 
    private:
     int pin;
-    float analogValueToLux(int value);
+    double analogValueToLux(int value);
 };

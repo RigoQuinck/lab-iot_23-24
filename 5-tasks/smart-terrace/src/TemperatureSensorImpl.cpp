@@ -1,10 +1,13 @@
 #include "TemperatureSensorImpl.h"
 
+#include "Arduino.h"
+
 // should match the Beta Coefficient of the thermistor
 const float BETA = 3950;
 
 TemperatureSensorImpl::TemperatureSensorImpl(int pin) {
     this->pin = pin;
+    pinMode(pin, INPUT);
 }
 
 float TemperatureSensorImpl::getTemperature() {
