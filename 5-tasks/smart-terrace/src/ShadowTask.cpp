@@ -1,6 +1,7 @@
 #include "ShadowTask.h"
 
 #include "LightSensorImpl.h"
+#include "Motor.h"
 #include "TemperatureSensorImpl.h"
 
 #define SERVO_UP 0
@@ -8,26 +9,27 @@
 #define SERVO_STEP 5
 #define UP_DIRECTION -1
 #define DOWN_DIRECTION 1
+#define GO_DOWN_LUX 10000
+#define GO_DOWN_TEMP 28
+#define GO_UP_LUX 400
 
-ShadowTask::ShadowTask(int tempPin, int lightSensorPin, int servoPin) {
-    this->lightSensorPin = lightSensorPin;
-    this->tempPin = tempPin;
-    this->servoPin = servoPin;
+ShadowTask::ShadowTask(LightSensor *lightSensor, TemperatureSensor *tempSensor, MyServo *servo, WindTask *windTask) {
+    this->lightSensor = lightSensor;
+    this->tempSensor = tempSensor;
+    this->servo = servo;
+    this->windTask = windTask;
     state = UP;
 }
 
 void ShadowTask::init(int period) {
-    lightSensor = new LightSensorImpl(lightSensorPin);
-    temp = new TemperatureSensorImpl(tempPin);
-    servo.attach(servoPin);
-    servo.write(SERVO_UP);
+    Task::init(period);
+    servo->setAngle(SERVO_UP);
     state = UP;
 }
 
 // Quando la luminosità raggiunge 10000 e la temperatura esterna è più alta di 28 gradi, abbasso il tendone.
 // Quando la limunosità cala raggiunge 400 alzo il tendone.
 void ShadowTask::tick() {
-    // Serial.println("TICK");
     switch (state) {
         case UP:
             up();
@@ -42,35 +44,34 @@ void ShadowTask::tick() {
 }
 
 void ShadowTask::up() {
-    int lux = this->lightSensor->getLightIntensity();
-    double temp = this->temp->getTemperature();
-    // Serial.println(String("LUX ") + lux);
-    // Serial.println(String("TEMP ") + temp);
-    if (lux >= 10000 && temp >= 28) {
-        Serial.println("going down");
-        // servo.write(SERVO_DOWN);
-        direction = DOWN_DIRECTION;
-        state = MOVING;
+    if (this->windTask->getState() != ALERT) {
+        int lux = this->lightSensor->getLightIntensity();
+        double temp = this->tempSensor->getTemperature();
+
+        if (lux >= GO_DOWN_LUX && temp >= GO_DOWN_TEMP) {
+            direction = DOWN_DIRECTION;
+            state = MOVING;
+        }
     }
 }
 
 void ShadowTask::down() {
     int lux = this->lightSensor->getLightIntensity();
-    if (lux <= 400) {
-        Serial.println("going up");
-        // servo.write(SERVO_UP);
-        // state = UP;
+    WindTaskState windState = this->windTask->getState();
+
+    if (windState == WindTaskState::ALERT || lux <= GO_UP_LUX) {
         direction = UP_DIRECTION;
         state = MOVING;
     }
 }
 
 void ShadowTask::moving() {
-    int curr = servo.read();
+    if (this->windTask->getState() == WindTaskState::ALERT) {
+        direction = UP_DIRECTION;
+    }
+    int curr = servo->getAngle();
     int newPos = curr + SERVO_STEP * direction;
-    Serial.println(String("CURR POS ") + curr);
-    Serial.println(String("NEW POS ") + newPos);
-    servo.write(newPos);
+    servo->setAngle(newPos);
     if (newPos == SERVO_DOWN) {
         state = DOWN;
     }

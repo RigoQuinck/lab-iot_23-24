@@ -8,27 +8,39 @@
   https://docs.wokwi.com/parts/wokwi-potentiometer
  */
 
+#include "src/LightSensorImpl.h"
+#include "src/Motor.h"
 #include "src/Scheduler.h"
 #include "src/ShadowTask.h"
+#include "src/TemperatureSensorImpl.h"
+#include "src/WindSensorImpl.h"
+#include "src/WindTask.h"
 
 #define LIGHT_SENSOR_PIN A0
 #define TEMP_PIN A4
-#define SERVO_PIN 5
-#define POT_PIN A1
+#define SERVO_PIN 9
+#define WIND_PIN A1
 
 #define SHADOW_TASK_PERIOD 50
+#define WIND_TASK_PERIOD 1000
 #define SCHED_PERIOD 50
 
 Scheduler sched;
 
 void setup() {
-    Serial.begin(9600);
+    WindSensor *windSensor = new WindSensorImpl(WIND_PIN);
+    WindTask *windTask = new WindTask(windSensor);
+    windTask->init(WIND_TASK_PERIOD);
 
-    ShadowTask *shadowTask = new ShadowTask(TEMP_PIN, LIGHT_SENSOR_PIN, SERVO_PIN);
+    LightSensor *lightSensor = new LightSensorImpl(LIGHT_SENSOR_PIN);
+    TemperatureSensor *tempSensor = new TemperatureSensorImpl(TEMP_PIN);
+    MyServo *servo = new Motor(SERVO_PIN);
+    ShadowTask *shadowTask = new ShadowTask(lightSensor, tempSensor, servo, windTask);
     shadowTask->init(SHADOW_TASK_PERIOD);
 
     sched.init(SCHED_PERIOD);
     sched.addTask(shadowTask);
+    sched.addTask(windTask);
 }
 
 void loop() {

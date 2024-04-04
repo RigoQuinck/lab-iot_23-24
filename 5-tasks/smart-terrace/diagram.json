@@ -37,6 +37,9 @@
     [ "uno:5V", "bb1:tp.10", "red", [ "v0" ] ],
     [ "bb1:tn.50", "bb1:bn.50", "magenta", [ "v0" ] ],
     [ "bb1:tp.49", "bb1:bp.49", "red", [ "v0" ] ],
+    [ "ntc1:GND", "bb1:bn.35", "black", [ "v0" ] ],
+    [ "ntc1:VCC", "bb1:bp.35", "red", [ "v0" ] ],
+    [ "bb1:42b.g", "uno:A4", "#8f4814", [ "v96", "h-172.8", "v-259.7" ] ],
     [ "ldr1:VCC", "bb1:31b.f", "", [ "$bb" ] ],
     [ "ldr1:GND", "bb1:30b.f", "", [ "$bb" ] ],
     [ "ldr1:DO", "bb1:29b.f", "", [ "$bb" ] ],
@@ -44,13 +47,10 @@
     [ "pot1:GND", "bb1:6b.f", "", [ "$bb" ] ],
     [ "pot1:SIG", "bb1:7b.f", "", [ "$bb" ] ],
     [ "pot1:VCC", "bb1:8b.f", "", [ "$bb" ] ],
-    [ "servo1:PWM", "uno:5", "green", [ "h-192", "v-124.6", "h-153.6" ] ],
     [ "ntc1:GND", "bb1:44b.f", "", [ "$bb" ] ],
     [ "ntc1:VCC", "bb1:43b.f", "", [ "$bb" ] ],
     [ "ntc1:OUT", "bb1:42b.f", "", [ "$bb" ] ],
-    [ "ntc1:GND", "bb1:bn.35", "black", [ "v0" ] ],
-    [ "ntc1:VCC", "bb1:bp.35", "red", [ "v0" ] ],
-    [ "bb1:42b.g", "uno:A4", "#8f4814", [ "v96", "h-172.8", "v-259.7" ] ]
+    [ "servo1:PWM", "uno:9", "green", [ "h-182.4", "v-115", "h-67.2" ] ]
   ],
   "dependencies": {}
 }

@@ -1,22 +1,23 @@
-#include <Servo.h>
+#ifndef __SHADOW_TASK__
+#define __SHADOW_TASK__
 
 #include "LightSensor.h"
+#include "MyServo.h"
 #include "Task.h"
 #include "TemperatureSensor.h"
+#include "WindTask.h"
 
 class ShadowTask : public Task {
    public:
-    ShadowTask(int tempPin, int lightSensorPin, int servoPin);
+    ShadowTask(LightSensor *lightSensor, TemperatureSensor *tempSensor, MyServo *servo, WindTask *windTask);
     void init(int period);
     void tick();
 
    private:
-    int tempPin;
-    int lightSensorPin;
-    int servoPin;
     LightSensor *lightSensor;
-    TemperatureSensor *temp;
-    Servo servo;
+    TemperatureSensor *tempSensor;
+    MyServo *servo;
+    WindTask *windTask;
     enum { DOWN, UP, MOVING } state;
     int direction;
 
@@ -24,3 +25,5 @@ class ShadowTask : public Task {
     void down();
     void moving();
 };
+
+#endif
