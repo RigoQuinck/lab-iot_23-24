@@ -1,0 +1,29 @@
+@startuml smart-terrace
+
+hide empty description
+
+[*] -> Active
+
+state Active {
+
+    state "WindTask (period 200ms)" as mot {
+        [*] -> Idle
+        Idle -> Alter: windSpeed > 30kmh
+        Alter -> Idle: windSpeed < 25kmh
+    }
+    --
+    state "ShadowTask (period 200ms)" as blink {
+        [*] --> Up
+        Up --> Moving: [lux >= 10000 && temp >= 28]\n/direction=1
+        Moving: do/pos = pos + step * direction
+        Moving --> Up: [pos==0]
+        Moving --> Down: [pos==180]
+        Moving --> Moving: [WindTask.status==Alert]\n/direction=-1
+
+        Down --> Moving: [WindTask.status==Alert]\n/direction=-1
+        Down --> Moving: [lux <= 400]\n/direction=-1
+    }
+
+}
+
+@enduml
