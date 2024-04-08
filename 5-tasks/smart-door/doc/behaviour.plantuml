@@ -1,0 +1,67 @@
+' Quando il pir rileva un movimento la porta si apre per 10 secondi, poi si chiude
+' Se la temperatura esterna è superiore a 40 gradi allora la porta non si deve aprire, 
+' e un led rosso si accende
+' Se la porta è aperta o si sta aprendo e il sistema va in closing, quindi poi closed
+
+' stati: alert, opening, closing, opened, closed
+
+
+@startuml smart-door-wrong
+
+hide empty description
+
+[*] --> Closed
+Closed --> Opening: motion
+
+Opening --> Opened: opened
+
+Opened --> Closing: after 10 seconds
+
+Closing --> Closed: closed
+
+state "Alert" as alert {
+    state "Alert Closed" as a_closed
+    state "Alert Closing" as a_closing
+}
+
+Closed --> a_closed: [temp >= 40]
+a_closed --> Closed: [temp < 40]
+
+Opening --> a_closing: [temp >= 40]
+Opened --> a_closing: [temp >= 40]
+Closing --> a_closing: [temp >= 40]
+
+a_closing --> a_closed: closed
+a_closing --> Closing: [temp < 40]
+
+@enduml
+
+
+@startuml smart-door
+
+hide empty description
+
+state "Active" as active {
+    state "DoorTask (period 500ms)" as door {
+        [*] --> Closed
+        Closed --> Opening: [AlertTask.state != Alert] motion
+
+        Opening --> Opened: opened
+        Opening --> Closing: [AlertTask.state == Alert]
+
+        Opened --> Closing: after 10 seconds
+        Opened --> Closing: [AlertTask.state == Alert]
+
+        Closing --> Closed: closed
+    }
+    --
+    state "AlertTask (period 1s)" as alert_task {
+        [*] --> Idle
+        Idle --> Alert: [temp >= 40]/led.switchOn()
+        Alert --> Idle: [temp < 40]/led.switchOff()
+    }
+}
+
+[*] --> active
+
+@enduml

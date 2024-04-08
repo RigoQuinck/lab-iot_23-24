@@ -1,0 +1,6 @@
+Quando il pir rileva un movimento la porta si apre per 10 secondi, poi si chiude
+Se la temperatura esterna è superiore a 40 gradi allora la porta non si deve aprire, 
+e un led rosso si accende
+Se la porta è aperta o si sta aprendo e il sistema va in closing, quindi poi closed
+
+stati: alert, opening, closing, opened, closed

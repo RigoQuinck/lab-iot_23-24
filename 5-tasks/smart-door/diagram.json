@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "author": "Stefano Righini",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb1", "top": 227.4, "left": 12.4, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": 26.8, "left": 556.8, "attrs": {} },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": 242.1,
+      "left": 373.9,
+      "rotate": 90,
+      "attrs": {}
+    },
+    { "type": "wokwi-led", "id": "led1", "top": 236.4, "left": 61.4, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 282.35,
+      "left": 86.4,
+      "attrs": { "value": "220" }
+    },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": 263.2, "left": 165.42, "attrs": {} }
+  ],
+  "connections": [
+    [ "servo1:GND", "bb1:tn.39", "magenta", [ "h0" ] ],
+    [ "servo1:V+", "bb1:tp.40", "red", [ "h0" ] ],
+    [ "uno:GND.2", "bb1:tn.11", "magenta", [ "v0" ] ],
+    [ "uno:5V", "bb1:tp.10", "red", [ "v0" ] ],
+    [ "bb1:tn.50", "bb1:bn.50", "magenta", [ "v0" ] ],
+    [ "bb1:tp.49", "bb1:bp.49", "red", [ "v0" ] ],
+    [ "ntc1:GND", "bb1:bn.35", "black", [ "v0" ] ],
+    [ "ntc1:VCC", "bb1:bp.35", "red", [ "v0" ] ],
+    [ "bb1:42b.g", "uno:A4", "#8f4814", [ "v96", "h-172.8", "v-259.7" ] ],
+    [ "servo1:PWM", "uno:9", "orange", [ "h-182.4", "v-115", "h-67.2" ] ],
+    [ "led1:A", "bb1:6t.a", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:5t.a", "", [ "$bb" ] ],
+    [ "bb1:5t.b", "bb1:tn.1", "magenta", [ "v0", "h-105.6", "v-38.4" ] ],
+    [ "r1:1", "bb1:6t.b", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:12t.b", "", [ "$bb" ] ],
+    [ "bb1:12t.a", "uno:12", "green", [ "v-67.2", "h-201.6", "v-230.4", "h182.4" ] ],
+    [ "ntc1:GND", "bb1:44b.f", "", [ "$bb" ] ],
+    [ "ntc1:VCC", "bb1:43b.f", "", [ "$bb" ] ],
+    [ "ntc1:OUT", "bb1:42b.f", "", [ "$bb" ] ],
+    [ "bb1:18b.h", "bb1:bp.14", "red", [ "v0" ] ],
+    [ "bb1:20b.h", "bb1:bn.16", "magenta", [ "v0" ] ],
+    [ "bb1:19b.h", "uno:7", "blue", [ "v105.6", "h-316.8", "v-528", "h9.6" ] ],
+    [ "pir1:VCC", "bb1:18b.g", "", [ "$bb" ] ],
+    [ "pir1:OUT", "bb1:19b.g", "", [ "$bb" ] ],
+    [ "pir1:GND", "bb1:20b.g", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}

@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/smart-door.ino.hex'
+elf = 'build/smart-door.ino.elf'
