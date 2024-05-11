@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/multicore-tasks.ino.bin'
+elf = 'build/multicore-tasks.ino.elf'
