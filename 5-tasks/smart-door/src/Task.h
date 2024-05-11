@@ -4,8 +4,10 @@
 #include <Arduino.h>
 
 class Task {
-    int taskPeriod;
     int timeElapsed;
+
+   protected:
+    int taskPeriod;
 
    public:
     virtual void init(int period) {
