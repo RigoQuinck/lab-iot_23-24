@@ -8,7 +8,7 @@ const char* ssid = "Wokwi-GUEST";
 const char* password = "";
 
 /* MQTT server address */
-const char* mqtt_server = "192.168.1.20";
+const char* mqtt_server = "<server_address>";
 
 /* MQTT topic */
 const char* topic = "lab-iot-2024";
