@@ -1,4 +1,0 @@
-[wokwi]
-version = 1
-firmware = 'build/esp-wifi-scan.ino.bin'
-elf = 'build/esp-wifi-scan.ino.elf'

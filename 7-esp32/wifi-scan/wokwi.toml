@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/wifi-scan.ino.bin'
+elf = 'build/wifi-scan.ino.elf'
