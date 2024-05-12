@@ -1,4 +1,0 @@
-[wokwi]
-version = 1
-firmware = 'build/esp-mqtt.ino.bin'
-elf = 'build/esp-mqtt.ino.elf'
