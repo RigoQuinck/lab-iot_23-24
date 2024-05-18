@@ -1,15 +1,15 @@
 import bluetooth
 
-def discover_devices():
-    print("Ricerca di dispositivi Bluetooth in corso...")
+def scan_devices():
+    print("Scanning for bluetooth devices...")
     devices = bluetooth.discover_devices(duration=8, lookup_names=True, flush_cache=True, lookup_class=False)
-    print(f"Trovati {len(devices)} dispositivi.")
 
-    for addr, name in devices:
-        print(f"Indirizzo: {addr}, Nome: {name}")
-
-def main():
-    discover_devices()
+    if devices:
+        print(f"Found {len(devices)} devices:")
+        for addr, name in devices:
+            print(f"  {name} - {addr}")
+    else:
+        print("No devices found.")
 
 if __name__ == "__main__":
-    main()
+    scan_devices()
