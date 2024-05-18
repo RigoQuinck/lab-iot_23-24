@@ -38,7 +38,7 @@ def main():
                     data = input("Enter data to send: ")
                     if data.lower() == "exit":
                         break
-                    sock.send(data)
+                    sock.send(data+'\n')
                     received = sock.recv(1024)
                     print(f"Received: {received.decode('utf-8')}")
             except KeyboardInterrupt:
