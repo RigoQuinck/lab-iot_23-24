@@ -10,6 +10,8 @@ Event = Tuple[EventType, Dict[str,Any]]
 def event(event_type: EventType, data: Dict[str,str]) -> Event:
     return (event_type, data)
 
+device_name = 'RIGOBT'
+
 Status = Enum('Status', ['connected','not_connected'])
 
 # Define event loop and event handlers
@@ -49,11 +51,12 @@ class EventLoop:
         match data:
             case {"address": address, "name": name}:
                 print(f"Device {name} found with address {address}")
-                await connect_bluetooth(self, address)
+                if name == device_name:
+                    await connect_bluetooth(self, address)
     
     async def handle_device_connected_event(self, sock):
         self.status = Status.connected
-        receive_data(self, sock)
+        asyncio.run_coroutine_threadsafe(receive_data(self, sock), asyncio.get_running_loop())
     
     async def handle_device_connection_failed_event(self, data):
         match data:
