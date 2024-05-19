@@ -1,5 +1,6 @@
 import bluetooth
 import asyncio
+import time
 
 def find_device(device_name):
     print("Scanning for Bluetooth devices...")
@@ -45,7 +46,8 @@ async def receive_data(sock):
 
 async def send_data(sock):
     while True:
-        sock.send("RASPI DATA\n")
+        ts = time.time()
+        sock.send(f"Raspi timestamp: {ts}\n")
         await asyncio.sleep(5) # wait 5 seconds
 
 async def main():
@@ -55,8 +57,7 @@ async def main():
         sock = connect_bluetooth(address)
         if sock:
             try:
-                # await asyncio.gather(receive_data(sock), send_data(sock))
-                await send_data(sock)
+                await asyncio.gather(receive_data(sock), send_data(sock))
             except KeyboardInterrupt:
                 print("Disconnected")
             finally:
