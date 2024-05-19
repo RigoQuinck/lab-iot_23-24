@@ -44,7 +44,7 @@ async def receive_data(sock):
         sock.close()
 
 async def send_data(sock):
-    sock.send("RASPI DATA")
+    sock.send("RASPI DATA\n")
     await asyncio.sleep(5) # wait 5 seconds
 
 async def main():
