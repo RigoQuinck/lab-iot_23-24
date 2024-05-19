@@ -57,7 +57,7 @@ async def main():
         sock = connect_bluetooth(address)
         if sock:
             try:
-                receiver = DataReceiver()
+                receiver = DataReceiver(sock)
                 while True:
                     await send_data(sock)
                     await receiver.receive_data()
