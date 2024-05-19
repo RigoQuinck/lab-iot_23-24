@@ -36,7 +36,7 @@ def get_data():
 
 def run_flask(shared_data):
     shared_data = shared_data
-    app.run(host='0.0.0.0', port=3421)
+    app.run(host='0.0.0.0', port=3000)
 
 if __name__ == '__main__':
     manager = multiprocessing.Manager()
