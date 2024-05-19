@@ -14,13 +14,14 @@
 #define BT_STATE_PIN 4
 #define BT_EVENT_CATCHER_TASK_PERIOD 100
 #define LOGGER_TASK_PERIOD 100
-#define PRODUCER_TASK_PERIOD 100
+#define PRODUCER_TASK_PERIOD 5000
 #define SCHED_PERIOD 100
 
 Scheduler sched;
+SerialMsgService* serial;
 
 void setup() {
-    SerialMsgService* serial = new SerialMsgService(SER_MSG_SERVICE_NAME, SER_MSG_SERVICE_BAUD_RATE);
+    serial = new SerialMsgService(SER_MSG_SERVICE_NAME, SER_MSG_SERVICE_BAUD_RATE);
     BluetoothMsgService* bt =
         new BluetoothMsgService(BT_MSG_SERVICE_NAME, BT_TXD_PIN, BT_RXD_PIN, BT_STATE_PIN, BT_MSG_SERVICE_BAUD_RATE);
 
@@ -41,4 +42,8 @@ void setup() {
 
 void loop() {
     sched.schedule();
+}
+
+void serialEvent() {
+    serial->channelEvent();
 }

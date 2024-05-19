@@ -46,18 +46,18 @@ void MsgService::channelEvent() {
         String content = "";
         while (this->isChannelAvailable()) {
             char ch = this->read();
-            Serial.println("[" + this->getName() + "] received: " + String(ch));
-            Serial.flush();
+            // Serial.println("[" + this->getName() + "] received: " + String(ch));
+            // Serial.flush();
             if (ch == '\n') {
-                Serial.println("[" + this->getName() + "] received end line with content: " + content);
-                Serial.flush();
+                // Serial.println("[" + this->getName() + "] received end line with content: " + content);
+                // Serial.flush();
                 this->saveMsg(content);
                 content = "";
             } else {
                 content += ch;
             }
         }
-        Serial.println("[" + this->getName() + "] received: " + content);
-        Serial.flush();
+        // Serial.println("[" + this->getName() + "] received: " + content);
+        // Serial.flush();
     }
 }

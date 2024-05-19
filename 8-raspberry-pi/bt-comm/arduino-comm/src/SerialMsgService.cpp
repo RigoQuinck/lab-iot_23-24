@@ -4,6 +4,7 @@
 
 SerialMsgService::SerialMsgService(String name, unsigned long baudRate) : MsgService(name) {
     Serial.begin(baudRate);
+    Serial.flush();
 }
 
 void SerialMsgService::sendMsg(String msg) {

@@ -44,8 +44,9 @@ async def receive_data(sock):
         sock.close()
 
 async def send_data(sock):
-    sock.send("RASPI DATA\n")
-    await asyncio.sleep(5) # wait 5 seconds
+    while True:
+        sock.send("RASPI DATA\n")
+        await asyncio.sleep(5) # wait 5 seconds
 
 async def main():
     device_name = 'RIGOBT'
@@ -54,7 +55,8 @@ async def main():
         sock = connect_bluetooth(address)
         if sock:
             try:
-                await asyncio.gather(receive_data(sock), send_data(sock))
+                # await asyncio.gather(receive_data(sock), send_data(sock))
+                await send_data(sock)
             except KeyboardInterrupt:
                 print("Disconnected")
             finally:
