@@ -28,7 +28,7 @@ def connect_bluetooth(address):
         return None
 
 def main():
-    device_name = 'RIGOBT'  # Replace with your HC-05 device name
+    device_name = '<device_name>'
     address = find_device(device_name)
     if address:
         sock = connect_bluetooth(address)
