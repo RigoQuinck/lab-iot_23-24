@@ -28,17 +28,22 @@ def connect_bluetooth(address):
     except bluetooth.btcommon.BluetoothError as err:
         print(f"Failed to connect: {err}")
         return None
-    
-buffer: str = ""
-async def receive_data(sock):
-    data = sock.recv(1024).decode('utf-8')
-    buffer += data
 
-    while '\n' in buffer:
-        line, buffer = buffer.split('\n', 1)
-        if line:
-            data = line.strip()
-            print(f"Received {data}")
+
+class DataReceiver:
+    def __init__(self, sock):
+        self.buffer: str = ""
+        self.sock = sock
+
+    async def receive_data(self):
+        data = self.sock.recv(1024).decode('utf-8')
+        self.buffer += data
+
+        while '\n' in self.buffer:
+            line, self.buffer = self.buffer.split('\n', 1)
+            if line:
+                data = line.strip()
+                print(f"Received {data}")
 
 async def send_data(sock):
     ts = time.time()
@@ -52,9 +57,10 @@ async def main():
         sock = connect_bluetooth(address)
         if sock:
             try:
+                receiver = DataReceiver()
                 while True:
                     await send_data(sock)
-                    await receive_data(sock)
+                    await receiver.receive_data()
             except KeyboardInterrupt:
                 print("Disconnected")
             finally:
